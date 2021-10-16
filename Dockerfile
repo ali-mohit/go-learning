@@ -5,6 +5,6 @@ WORKDIR /build
 
 RUN export GO111MODULE=offj
 ADD ./src /build
-RUN cd /build && go mod init example.com/go_learning && go build --race .
+RUN cd /build && go mod tidy && go build -o ./go-learning
 
-CMD ["/build/go_learning"]
+CMD ["/build/go-learning"]

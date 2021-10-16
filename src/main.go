@@ -8,6 +8,8 @@ import (
 	"strconv"
 	"sync"
 	"time"
+
+	"github.com/bwmarrin/discordgo"
 )
 
 const myNumber int = 0
@@ -140,6 +142,18 @@ func main() {
 	printChannelBufferSize()
 	printChannelBufferSizeV2()
 	printUsingSignalChannel()
+
+	//go.mod tidy
+	printUsingDiscordTestLib()
+}
+
+func printUsingDiscordTestLib(){
+	discord, err := discordgo.New("")
+	if err != nil{
+		fmt.Println("Could not start session")
+	}
+	fmt.Println("Session: ", discord)
+
 }
 
 var wgChannel = sync.WaitGroup{}
