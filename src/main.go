@@ -63,8 +63,8 @@ type Bird struct {
 }
 
 type TagStruct struct{
-	Name string `required max:"100"`
-	Family string `ImportantField,AndOtherField`
+	Name string `requiredmax:"100"`
+	Family string `ImportantField:"AndOtherField"`
 }
 
 func main() {
@@ -1043,7 +1043,7 @@ func printRole(){
 	var roles byte = isAdmin | canSeeAfrica | canSeeEurope
 	fmt.Println("============================")
 	fmt.Printf("roles: %b\n", roles)
-	fmt.Printf("Is Admin? \t%v \n", roles & isAdmin == isAdmin)
-	fmt.Printf("Is HeadQuarters? \t%v \n", roles & isHeadquarters == isHeadquarters)
+	fmt.Printf("Is Admin? \t%v \n", (roles & isAdmin) == isAdmin)
+	fmt.Printf("Is HeadQuarters? \t%v \n", (roles & isHeadquarters) == isHeadquarters)
 
 }
